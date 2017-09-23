@@ -3,6 +3,7 @@
 > Docker image to run jsdoc2md (jsdoc-to-markdown).
 
 [![CircleCI](https://img.shields.io/circleci/project/github/stefanwalther/docker-jsdoc2md.svg)](https://circleci.com/gh/stefanwalther/docker-jsdoc2md/tree/master)
+[![Greenkeeper badge](https://badges.greenkeeper.io/stefanwalther/docker-jsdoc2md.svg)](https://greenkeeper.io/)
 
 ## Motivation
 
