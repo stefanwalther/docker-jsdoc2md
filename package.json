@@ -1,0 +1,35 @@
+{
+  "name": "docker-jsdoc2md",
+  "version": "1.0.0",
+  "description": "Docker image to run jsdoc2md (jsdoc-to-markdown).",
+  "keywords": [
+    "api-documentation",
+    "docker",
+    "documentation",
+    "jsdoc",
+    "jsdoc-to-markdown",
+    "jsdoc2md",
+    "markdown"
+  ],
+  "homepage": "https://github.com/stefanwalther/docker-jsdoc2md#readme",
+  "bugs": {
+    "url": "https://github.com/stefanwalther/docker-jsdoc2md/issues"
+  },
+  "license": "MIT",
+  "author": "Stefan Walther <swr.nixda@gmail.com> (http://qliksite.io)",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stefanwalther/docker-jsdoc2md.git"
+  },
+  "scripts": {
+    "d-build": "docker build -t stefanwalther/jsdoc2md .",
+    "d-run": "docker run --rm -v ${PWD}:/opt/jsdoc2md stefanwalther/jsdoc2md",
+    "docs": "docker run --rm -v ${PWD}:/opt/verb stefanwalther/verb",
+    "test": "docker run --rm -v ${PWD}:/opt/jsdoc2md stefanwalther/jsdoc2md test/fixtures/index.js > test/output.md"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "jsdoc-to-markdown": "^3.0.0"
+  }
+}
