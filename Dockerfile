@@ -1,7 +1,10 @@
 # -------------------------------------------------------------------
 #                               BASE NODE
 # -------------------------------------------------------------------
-FROM node:8.4.0-alpine as BASE
+FROM node:8.5.0-alpine as BASE
+
+RUN apk update
+RUN apk add bash
 
 WORKDIR /opt/jsdoc2md
 
@@ -14,9 +17,6 @@ RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 #                                TEST
 # -------------------------------------------------------------------
 FROM BASE as TEST
-
-RUN apk update
-RUN apk add bash
 
 WORKDIR /opt/jsdoc2md
 

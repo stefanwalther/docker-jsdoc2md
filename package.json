@@ -1,6 +1,6 @@
 {
   "name": "docker-jsdoc2md",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Docker image to run jsdoc2md (jsdoc-to-markdown).",
   "keywords": [
     "api-documentation",
@@ -26,7 +26,10 @@
     "d-build": "docker build -t stefanwalther/jsdoc2md .",
     "d-run": "docker run --rm -v ${PWD}:/opt/jsdoc2md stefanwalther/jsdoc2md",
     "docs": "docker run --rm -v ${PWD}:/opt/verb stefanwalther/verb",
-    "test": "docker run --rm -v ${PWD}:/opt/jsdoc2md stefanwalther/jsdoc2md test/fixtures/index.js > test/output.md"
+    "changelog--old": "docker run -it --rm -v $(pwd):/app prooph/github-changelog-generator",
+    "test": "docker run --rm -v ${PWD}:/opt/jsdoc2md stefanwalther/jsdoc2md test/fixtures/index.js > test/output.md",
+    "changelog": "docker run --rm -v ${PWD}:/app stefanwalther/github-changelog-generator -t ${GITHUB_CHANGELOG_GENERATOR_TOKEN} -u stefanwalther -p docker-jsdoc2md"
+
   },
   "dependencies": {},
   "devDependencies": {
