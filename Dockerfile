@@ -8,10 +8,14 @@ RUN apk add bash
 
 WORKDIR /opt/jsdoc2md
 
-RUN npm install -g jsdoc-to-markdown
+COPY ./package.json .
+
+RUN npm install -s
 
 COPY ./docker-entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
+COPY ./jsdoc.json $WORKDIR
 
 # -------------------------------------------------------------------
 #                                TEST
