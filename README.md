@@ -3,33 +3,14 @@
 > Docker image to run jsdoc2md (jsdoc-to-markdown).
 
 [![CircleCI](https://img.shields.io/circleci/project/github/stefanwalther/docker-jsdoc2md.svg)](https://circleci.com/gh/stefanwalther/docker-jsdoc2md/tree/master)
-[![Greenkeeper badge](https://badges.greenkeeper.io/stefanwalther/docker-jsdoc2md.svg)](https://greenkeeper.io/)
 
 ## Motivation
-
-[jsdoc-to-markdown](https://github.com/jsdoc2md/jsdoc-to-markdown) is a great tool to create markdown files directly from the source code. This solution just dockerizes the tool, which makes is easier to use across projects with zero installation inside the projects.
-
-## Installation
-
-```sh
-$ docker pull stefanwalther/jsdoc2md
-```
-Link to Docker Hub repository: [https://hub.docker.com/r/stefanwalther/jsdoc2md/](https://hub.docker.com/r/stefanwalther/jsdoc2md/)
 
 ## Run
 
 ```sh
-$ docker run --rm -v ${PWD}:/opt/jsdoc2md stefanwalther/jsdoc2md [SOURCE] [ARGS] > [DESTINATION]
+$ docker run --rm -v ${PWD}:/opt/jsdoc2md stefanwalther/jsdoc2md "source-files" > "output"
 ```
-
-### Configuration
-
-You can pass in any jsdoc2md argument, to get the list of arguments, run:
-
-```sh
-$ docker run --rm -v ${PWD}:/opt/jsdoc2md stefanwalther/jsdoc2md --help
-```
-or refer to the [jsdoc-to-md/jsdoc2md](https://github.com/jsdoc2md/jsdoc-to-markdown) repository on GitHub.
 
 ### Run as npm script
 
@@ -42,11 +23,21 @@ A very convenient approach is to just add a script to your `package.json` file:
 ```
 This would convert all the jsdoc information from `./src/index.js` and create a file `./docs/api-docs.md`.
 
+## Configuration
+
 ## Installation
 
 ### Prerequisites
 
 - [Docker for Mac](https://docs.docker.com/docker-for-mac/) / [Docker for Windows](https://docs.docker.com/docker-for-windows/)
+
+## Known Issues
+
+... none known so far ...
+
+## Changelog
+
+See [CHANGELOG file](CHANGELOG.yml)
 
 ## About
 

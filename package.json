@@ -23,7 +23,6 @@
     "url": "git+https://github.com/stefanwalther/docker-jsdoc2md.git"
   },
   "scripts": {
-    "d-build": "docker build -t stefanwalther/jsdoc2md .",
     "d-run": "docker run --rm -v ${PWD}:/opt/jsdoc2md stefanwalther/jsdoc2md",
     "docs": "docker run --rm -v ${PWD}:/opt/verb stefanwalther/verb",
     "changelog--old": "docker run -it --rm -v $(pwd):/app prooph/github-changelog-generator",
@@ -34,9 +33,8 @@
     "babel-core": "^6.26.0",
     "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-preset-es2015": "^6.24.1",
-    "jsdoc-babel": "^0.3.0"
+    "jsdoc-babel": "^0.3.0",
+    "jsdoc-to-markdown": "^4.0.1"
   },
-  "devDependencies": {
-    "jsdoc-to-markdown": "^3.0.2"
-  }
+  "devDependencies": {}
 }

@@ -1,5 +1,7 @@
 # -------------------------------------------------------------------
 #                               BASE NODE
+# Todo: The user should be changed
+# Todo: Update to newest images
 # -------------------------------------------------------------------
 FROM node:8.5.0-alpine as BASE
 
@@ -10,6 +12,7 @@ WORKDIR /opt/jsdoc2md
 
 COPY ./package.json .
 
+#RUN npm install -s -g babel-core babel-plugin-transform-async-to-generator babel-preset-es2015 jsdoc-babel jsdoc-to-markdown
 RUN npm install -s
 
 COPY ./docker-entrypoint.sh /usr/local/bin/
@@ -30,6 +33,8 @@ RUN /opt/jsdoc2md/test/test.sh
 
 # -------------------------------------------------------------------
 #                               RELEASE
+# Todo: to reduce the size, we could work from alpine again
+#   optionally we could just uninstall bash
 # -------------------------------------------------------------------
 FROM BASE as RELEASE
 
