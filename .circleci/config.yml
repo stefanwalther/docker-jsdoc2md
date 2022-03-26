@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: node:8.16.2
+      - image: node:17.8.0
     working_directory: ~/app
     environment:
       DOCKER_REPO: stefanwalther/jsdoc2md
