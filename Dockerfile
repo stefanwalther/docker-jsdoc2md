@@ -3,7 +3,7 @@
 # Todo: The user should be changed
 # Todo: Update to newest images
 # -------------------------------------------------------------------
-FROM node:8.16.2-alpine as BASE
+FROM node:21.3.0-alpine as BASE
 
 RUN apk update
 RUN apk add bash
