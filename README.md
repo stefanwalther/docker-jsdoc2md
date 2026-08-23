@@ -46,7 +46,6 @@ See [CHANGELOG file](CHANGELOG.yml)
 
 **Stefan Walther**
 
-* [qliksite.io](http://qliksite.io)
 * [github/stefanwalther](https://github.com/stefanwalther)
 * [Twitter](http://twitter.com/waltherstefan)
 * [LinkedIn](https://www.linkedin.com/in/stefanwalther/)
@@ -62,7 +61,7 @@ Pull requests and stars are always welcome. For bugs and feature requests, [plea
 I cannot guarantee that I will merge all PRs but I will evaluate them all.
 
 ### License
-Copyright © 2017-present, [Stefan Walther](http://qliksite.io).
+Copyright © 2017-present, Stefan Walther.
  
 MIT
 
