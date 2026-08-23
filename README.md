@@ -3,6 +3,7 @@
 > Docker image to run jsdoc2md (jsdoc-to-markdown).
 
 [![CircleCI](https://img.shields.io/circleci/project/github/stefanwalther/docker-jsdoc2md.svg)](https://circleci.com/gh/stefanwalther/docker-jsdoc2md/tree/master)
+[![DockerHub][dockerhub-image]][dockerhub-url]
 
 ## Motivation
 
@@ -45,7 +46,6 @@ See [CHANGELOG file](CHANGELOG.yml)
 
 **Stefan Walther**
 
-* [stefanwalther.io](http://stefanwalther.io)
 * [qliksite.io](http://qliksite.io)
 * [github/stefanwalther](https://github.com/stefanwalther)
 * [Twitter](http://twitter.com/waltherstefan)
@@ -62,7 +62,7 @@ Pull requests and stars are always welcome. For bugs and feature requests, [plea
 I cannot guarantee that I will merge all PRs but I will evaluate them all.
 
 ### License
-Copyright © 2017, [Stefan Walther](http://qliksite.io).
+Copyright © 2017-present, [Stefan Walther](http://qliksite.io).
  
 MIT
 
