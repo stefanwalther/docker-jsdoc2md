@@ -18,10 +18,6 @@ test:								## Run tests
 	docker run --rm --tty -v ${PWD}:/opt/jsdoc2md stefanwalther/jsdoc2md test/fixtures/async.js > test/.tmp/async.md
 .PHONY: test
 
-gen-readme:					## Generate the README.md
-	npm run docs
-.PHONY: test
-
 exec:
 	docker exec -v ${PWD}:/opts/jsdoc2md -it stefanwalther/jsdoc2md /bin/bash
 .PHONY: exec
