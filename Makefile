@@ -9,15 +9,18 @@ build: 							## Build the docker image.
 	docker build -t stefanwalther/jsdoc2md .
 .PHONY: build
 
-run:
-	docker run --rm --tty -v ${PWD}:/opt/jsdoc2md stefanwalther/jsdoc2md /bin/bash
+run:								## Run an interactive shell in the image.
+	docker run --rm -it --entrypoint /bin/bash -v ${PWD}:/opt/jsdoc2md stefanwalther/jsdoc2md
 .PHONY: run
 
 test:								## Run tests
-	docker run --rm --tty -v ${PWD}:/opt/jsdoc2md stefanwalther/jsdoc2md test/fixtures/index.js > test/.tmp/index.md
-	docker run --rm --tty -v ${PWD}:/opt/jsdoc2md stefanwalther/jsdoc2md test/fixtures/async.js > test/.tmp/async.md
+	mkdir -p test/.tmp
+	docker run --rm -v ${PWD}:/opt/jsdoc2md stefanwalther/jsdoc2md test/fixtures/index.js > test/.tmp/index.md
+	docker run --rm -v ${PWD}:/opt/jsdoc2md stefanwalther/jsdoc2md test/fixtures/async.js > test/.tmp/async.md
+	diff -u test/expected/index.md test/.tmp/index.md
+	diff -u test/expected/async.md test/.tmp/async.md
 .PHONY: test
 
-exec:
-	docker exec -v ${PWD}:/opts/jsdoc2md -it stefanwalther/jsdoc2md /bin/bash
+exec:								## Exec a shell in the running container.
+	docker exec -it $$(docker ps -q --filter "ancestor=stefanwalther/jsdoc2md" | head -n 1) /bin/bash
 .PHONY: exec
