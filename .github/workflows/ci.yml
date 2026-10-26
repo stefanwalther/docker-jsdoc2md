@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build image (TEST stage runs test/test.sh)
+        run: docker build --target test -t stefanwalther/jsdoc2md:ci .
+
+      - name: Build release image
+        run: docker build -t stefanwalther/jsdoc2md:ci .
+
+      - name: Smoke test volume-mount invocation (env-val style)
+        run: |
+          docker run --rm -v ${PWD}:/opt/jsdoc2md stefanwalther/jsdoc2md:ci test/fixtures/index.js > /tmp/index.md
+          diff -u test/expected/index.md /tmp/index.md
+          docker run --rm -v ${PWD}:/opt/jsdoc2md stefanwalther/jsdoc2md:ci test/fixtures/async.js > /tmp/async.md
+          diff -u test/expected/async.md /tmp/async.md
