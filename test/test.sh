@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
+set -e
 
 TEST_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-ROOT_DIR=""
+JSDOC2MD=/usr/local/jsdoc2md/node_modules/.bin/jsdoc2md
 
 cleanup() {
-  D="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-  rm -rf "${D}/output.md"
+  rm -f "${TEST_DIR}/output.md"
 }
 
 check_output() {
@@ -20,13 +20,22 @@ else
 fi
 }
 
+fail() {
+  echo ""
+  echo "==> Test FAILED: $1 differs from expected output";
+  exit 1;
+}
 
 cleanup;
-/opt/jsdoc2md/jsdoc2md --configure /opt/jsdoc2md/jsdoc.json "${TEST_DIR}/fixtures/index.js" > "${TEST_DIR}/output.md"
+"$JSDOC2MD" "${TEST_DIR}/fixtures/index.js" > "${TEST_DIR}/output.md"
 check_output;
-comm -2 -3 "${TEST_DIR}/output.md" "${TEST_DIR}/expected/index.md"
+diff -u "${TEST_DIR}/expected/index.md" "${TEST_DIR}/output.md" || fail "index.js"
 
 cleanup;
-/opt/jsdoc2md//jsdoc2md --configure /opt/jsdoc2md/jsdoc.json "${TEST_DIR}/fixtures/async.js" > "${TEST_DIR}/output.md"
+"$JSDOC2MD" "${TEST_DIR}/fixtures/async.js" > "${TEST_DIR}/output.md"
 check_output;
-comm -2 -3 "${TEST_DIR}/output.md" "${TEST_DIR}/expected/async.md"
+diff -u "${TEST_DIR}/expected/async.md" "${TEST_DIR}/output.md" || fail "async.js"
+
+cleanup;
+echo ""
+echo "==> All tests passed."
